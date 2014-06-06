@@ -1,0 +1,9 @@
+<h1>Chores!</h1>
+
+<% @users.each do |user| %>
+
+  <img src='<%= user.photo %>'>
+  <p><%= user.name %></p>
+  <p><%= user.email %></p>
+  
+<% end %>

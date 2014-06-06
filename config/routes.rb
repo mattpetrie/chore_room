@@ -1,5 +1,5 @@
 Rails.application.routes.draw do  
-  root to: 'static_pages#home' 
+  root to: 'chores#index' 
   resource :session, only: :new
   
   get "/auth/github/callback", to: "sessions#create"
