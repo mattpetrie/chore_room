@@ -42,6 +42,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'bootstrap-sass'
 
+gem 'figaro'
+
 group :development do 
   gem 'better_errors'
   gem 'binding_of_caller'
