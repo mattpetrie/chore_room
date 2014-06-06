@@ -12,6 +12,11 @@
 #
 
 class User < ActiveRecord::Base
+  validates :name, :uid, :email, :photo, presence: true
+  validates :uid, uniqueness: true
+
+  has_many :chores
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.uid = auth["uid"]

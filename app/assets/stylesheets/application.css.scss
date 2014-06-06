@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ 
+@import "bootstrap";
+
+.navbar{
+  border-radius: 0;
+  padding-right: 15px;
+}
