@@ -1,26 +1,29 @@
-<form action="<%= action %>" method="post">
-  <%= form_auth_token %>
-  <% unless value.nil? %>
-    <input type='hidden' name='_method' value="patch">
-  <% end %>
-  <% unless value.nil? %>
-    <input type="hidden" name="_method" value="patch">
-  <% end %>
-  <label>Title:</br>
-    <input type="text" name="chore[title]">
-  </label>
+
+<div id="choreform">
+  <form action="<%= action %>" method="post">
+    <%= form_auth_token %>
+    <% unless value.nil? %>
+      <input type='hidden' name='_method' value="patch">
+    <% end %>
+    <% unless value.nil? %>
+      <input type="hidden" name="_method" value="patch">
+    <% end %>
+    <label>Title:</br>
+      <input type="text" name="chore[title]">
+    </label>
   
-  <label>Assigned to id:</br>
-    <input type="text" name="chore[user_id]">
-  </label>
+    <label>Assigned to id:</br>
+      <input type="text" name="chore[user_id]">
+    </label>
   
-  <label>Due:</br>
-    <input type="date" name="chore[due_date]">
-  </label>
+    <label>Due:</br>
+      <input type="date" name="chore[due_date]">
+    </label>
   
-  <% if value == 'patch' %>
-    <input type="submit" value="Update Chore">
-  <% else %>
-    <input type="submit" value="Add Chore">
-  <% end %>
-</form>
+    <% if value == 'patch' %>
+      <input type="submit" value="Update Chore">
+    <% else %>
+      <input type="submit" value="Add Chore">
+    <% end %>
+  </form>
+</div>
