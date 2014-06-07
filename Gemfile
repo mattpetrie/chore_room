@@ -19,10 +19,13 @@ gem 'bootstrap-sass'
 
 gem 'figaro'
 
-group :development do 
+gem 'sendgrid'
+
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'pry-rails'
   gem 'debugger'
+  gem 'letter_opener'
 end
