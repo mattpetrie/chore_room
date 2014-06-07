@@ -20,3 +20,5 @@
   <%= chore.user.email %></p>
 <% end %>
 </div>
+
+<%= button_to "Send Chores", send_chores_url, method: :post, class: "btn btn-warning"%>
