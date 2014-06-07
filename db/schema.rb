@@ -11,21 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607221138) do
+ActiveRecord::Schema.define(version: 20140607221402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chores", force: true do |t|
     t.string   "title",                      null: false
-    t.integer  "user_id"
-    t.datetime "due_date"
     t.boolean  "completed",  default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "chores", ["user_id"], name: "index_chores_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                       null: false
