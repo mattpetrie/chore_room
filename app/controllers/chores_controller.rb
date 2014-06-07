@@ -1,7 +1,7 @@
 class ChoresController < ApplicationController
 
     before_action :ensure_current_user
-  
+
   def index
     @chores = Chore.all
     @users = User.all
@@ -26,6 +26,13 @@ class ChoresController < ApplicationController
   end
   
   def destroy
+  end
+  
+  def send_chores
+    Chore.all.each do | chore |
+      Notifier.chore_notification_email(chore).deliver
+    end
+    redirect_to root_url
   end
   
   private
