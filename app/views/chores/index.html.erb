@@ -1,6 +1,7 @@
 <h1>Chores!</h1>
 
-<%= render partial: 'shared/addChore', locals: {action: chores_url, value:nil, chore: @chores} %>
+<%= render partial: 'shared/addChore',
+           locals: { action: chores_url, value: nil, chore: @chores } %>
 
 <div class="col-sm-6 col-offset-3">
 <% @chores.each do |chore| %>
