@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  chore_id: 
+  due_date: 2014-06-07 15:13:41
+
+two:
+  user_id: 
+  chore_id: 
+  due_date: 2014-06-07 15:13:41

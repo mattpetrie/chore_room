@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'figaro'
 
 gem 'sendgrid'
+gem 'chronic'
 
 group :development do
   gem 'better_errors'

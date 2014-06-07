@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607204620) do
+ActiveRecord::Schema.define(version: 20140607221341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chore_assignments", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "chore_id",   null: false
+    t.datetime "due_date",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chore_assignments", ["chore_id"], name: "index_chore_assignments_on_chore_id", using: :btree
+  add_index "chore_assignments", ["user_id", "chore_id"], name: "index_chore_assignments_on_user_id_and_chore_id", unique: true, using: :btree
+  add_index "chore_assignments", ["user_id"], name: "index_chore_assignments_on_user_id", using: :btree
 
   create_table "chores", force: true do |t|
     t.string   "title",                      null: false
