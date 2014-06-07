@@ -9,10 +9,12 @@
 #  photo      :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#  admin      :boolean          default(FALSE), not null
 #
 
 class User < ActiveRecord::Base
   validates :name, :uid, :email, :photo, presence: true
+  validates :admin, presence: true, inclusion: { in: [true, false] }
   validates :uid, uniqueness: true
 
   has_many :chores
