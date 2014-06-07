@@ -4,9 +4,9 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string(255)      not null
-#  completed  :boolean          default(FALSE), not null
 #  created_at :datetime
 #  updated_at :datetime
+#  day        :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -21,6 +21,7 @@ gem 'figaro'
 
 gem 'sendgrid'
 gem 'chronic'
+gem 'seed_dump'
 
 group :development do
   gem 'better_errors'

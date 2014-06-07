@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: chore_assignments
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  chore_id   :integer          not null
+#  due_date   :datetime         not null
+#  created_at :datetime
+#  updated_at :datetime
+#  completed  :boolean          default(FALSE)
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

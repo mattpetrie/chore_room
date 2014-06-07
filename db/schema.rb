@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607221402) do
+ActiveRecord::Schema.define(version: 20140607223904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chore_assignments", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "chore_id",   null: false
-    t.datetime "due_date",   null: false
+    t.integer  "user_id",                    null: false
+    t.integer  "chore_id",                   null: false
+    t.datetime "due_date",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "completed",  default: false
   end
 
   add_index "chore_assignments", ["chore_id"], name: "index_chore_assignments_on_chore_id", using: :btree
@@ -29,10 +30,10 @@ ActiveRecord::Schema.define(version: 20140607221402) do
   add_index "chore_assignments", ["user_id"], name: "index_chore_assignments_on_user_id", using: :btree
 
   create_table "chores", force: true do |t|
-    t.string   "title",                      null: false
-    t.boolean  "completed",  default: false, null: false
+    t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "day"
   end
 
   create_table "users", force: true do |t|

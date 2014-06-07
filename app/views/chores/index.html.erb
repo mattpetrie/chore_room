@@ -4,21 +4,20 @@
            locals: { action: chores_url, value: nil, chore: @chores } %>
 
 <div class="col-sm-6 col-offset-3">
-<% @chores.each do |chore| %>
-  <h3><%= chore.title %></h3>
-  <p>Due: <%= chore.due_date.to_formatted_s(:long_ordinal) %></p>
-  <% if chore.completed %>
+<% @chore_assignments.each do |assignment| %>
+  <h3><%= assignment.chore.title %></h3>
+  <p>Due: <%= assignment.due_date.to_formatted_s(:long_ordinal) %></p>
+  <% if assignment.completed %>
     <p class="completed">Completed!</p>
-  <% elsif chore.due_date > Time.now  %>
+  <% elsif assignment.due_date > Time.now  %>
     <p class="incomplete">Not yet completed.</p>
   <% else %>
     <p class="overdue">Overdue</p>
   <% end %>
 
   <p>Assigned to:</p>
-  <p><%= image_tag(chore.user.photo, class: "user-photo img-thumbnail img-responsive pull-left") %>
-  <%= chore.user.name %><br>
-  <%= chore.user.email %></p>
+  <p><%= image_tag(assignment.user.photo, class: "user-photo img-thumbnail img-responsive pull-left") %>
+  <%= assignment.user.name %><br>
 <% end %>
 </div>
 

@@ -2,8 +2,7 @@ class ChoresController < ApplicationController
   before_action :ensure_current_user
 
   def index
-    @chores = Chore.all
-    @users = User.all
+    @chore_assignments = ChoreAssignment.where(due_date: Chronic.parse('last Saturday')..Chronic.parse('Sunday'))
   end
 
   def new

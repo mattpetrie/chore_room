@@ -14,10 +14,10 @@
 
 class User < ActiveRecord::Base
   validates :name, :uid, :email, :photo, presence: true
-  validates :admin, presence: true, inclusion: { in: [true, false] }
   validates :uid, uniqueness: true
 
-  has_many :chores
+  has_many :chore_assignments
+  has_many :assigned_chores, through: :chore_assignments, source: :chore
 
   def self.create_with_omniauth(auth)
     create! do |user|
