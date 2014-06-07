@@ -14,8 +14,4 @@ class Notifier < ActionMailer::Base
     mail :to => @user.email, :subject => "#{@user.name}. You've got a chore!"
   end
 
-  # def goodbye_message(user)
-  #   sendgrid_disable :ganalytics
-  #   mail :to => user.email, :subject => "Fare thee well :-("
-  # end
 end
