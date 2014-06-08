@@ -11,76 +11,8 @@
 <% end %>
 
 
-<div class="row">
-  <h3>Monday:</h3>
-  <% alternate = false %>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Monday" }.each do |asgn| %>
-
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
-
-<div class="row">
-  <% alternate = false %>
-  <h3>Tuesday:</h3>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Tuesday" }.each do |asgn| %>
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
-
-<div class="row">
-  <h3>Wednesday:</h3>
-  <% alternate = false %>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Wednesday" }.each do |asgn| %>
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
-
-<div class="row">
-  <h3>Thursday:</h3>
-  <% alternate = false %>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Thursday" }.each do |asgn| %>
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
-
-<div class="row">
-  <h3>Friday:</h3>
-  <% alternate = false %>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Friday" }.each do |asgn| %>
-
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
-
-<div class="row">
-  <h3>Saturday:</h3>
-  <% alternate = false %>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Saturday" }.each do |asgn| %>
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
-
-<div class="row">
-  <h3>Sunday:</h3>
-  <% alternate = false %>
-  <% @chore_assignments.select { |asgn| asgn.chore.day == "Sunday" }.each do |asgn| %>
-    <%= render partial: 'chores/assignment', 
-               locals: { assignment: asgn, alternate: alternate } %>
-    <% alternate ? alternate = false : alternate = true %>
-  <% end %>
-</div>
+<% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |weekday| %>
+  <%= render partial: 'chores/day', locals: { weekday: weekday } %>
+<% end %>
 
 

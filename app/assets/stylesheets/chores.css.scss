@@ -3,26 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .chore-assignment{
+  border: 3px solid white;
   padding: 10px;
   height: 260px;
   width: 20%;
   float: left;
   border-radius: 4px;
   background-color: #eee;
-  h4 {
-    min-height: 38px;
+  h5 {
+    min-height: 30px;
+    font-weight: bold;
   }
-}
-
-.alternate{
-  background-color: #ddd;
 }
 
 .user-photo{
   max-height: 75px;
   max-width: auto;
   border-radius: 4px;
-  padding-right: 10px;
+  margin: 10px;
 }
 
 .completed, .incomplete, .overdue{
@@ -31,13 +29,13 @@
 }
 
 .completed{
-  background-color: lightgreen;
+  background-color: #dff0d8;
 }
 
 .incomplete{
-  background-color: yellow;
+  background-color: #fcf8e3;
 }
 
 .overdue{
-  background-color: red;
+  background-color: #f2dede;
 }

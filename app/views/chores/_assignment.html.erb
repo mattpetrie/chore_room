@@ -1,5 +1,13 @@
-<div class="chore-assignment <%= 'alternate' if alternate %>">
-  <h4><%= assignment.chore.title %></h4>
+<div class="chore-assignment <%= status %>">
+  <h5><%= assignment.chore.title %></h5>
+    <%= image_tag(assignment.user.photo, class: "user-photo img-responsive center-block") %>
+  <div class="clearfix"></div>
+  <p>
+    <%= assignment.user.name %> <br>
+    <% if current_user == assignment.user && !assignment.completed %>
+      <%= link_to "mark completed", complete_chore_url(assignment) %>
+    <% end %>
+  </p>
   <p>Due: <%= assignment.due_date.to_formatted_s(:long_ordinal) %></p>
   <% if assignment.completed %>
     <p class="completed">Completed!</p>
@@ -8,12 +16,4 @@
   <% else %>
     <p class="overdue">Overdue</p>
   <% end %>
-  <p>Assigned to:</p>
-  <p><%= image_tag(assignment.user.photo, class: "user-photo img-responsive pull-left") %>
-    <%= assignment.user.name %> <br> 
-    <% if current_user == assignment.user && !assignment.completed %>
-      <%= link_to "mark completed", complete_chore_url(assignment) %>
-    <% end %>
-  </p>
-  <div class="clearfix"></div>
 </div>
