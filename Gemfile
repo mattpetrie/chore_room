@@ -21,6 +21,9 @@ gem 'figaro'
 
 gem 'sendgrid'
 
+gem 'chronic'
+gem 'seed_dump'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

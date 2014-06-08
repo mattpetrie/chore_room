@@ -6,6 +6,8 @@
   <body>
     <h1>Congratulations, <%= @user.name %>!</h1>
     <h2>You've been assigned a chore for this week!</h2>
-    <p>Your chore is <strong><%= @chore.title %></strong></p>
+
+    <p>Your chore is <strong><%= @chore.title %></strong>. Please complete your chore on or by <strong><%= @due_date %></strong></p>
+    <p>When you have finished your chore, please <%= link_to "click this link", @url %> to mark your task completed.</p>
   </body>
 </html>

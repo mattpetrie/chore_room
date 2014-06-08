@@ -1,0 +1,19 @@
+<h1>Chores!</h1>
+
+<% if current_user.admin %>
+  <div class="row">
+    <div class="col-sm-12">
+      <label>Click here to email everyone their chores:
+        <%= button_to "Assign Chores!", send_chores_url, method: :post, class: "btn btn-lg btn-success"%>
+      </label>
+    </div>
+  </div>
+<% end %>
+
+
+<% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |weekday| %>
+  <%= render partial: 'chore_assignments/day', locals: { weekday: weekday } %>
+  <hr>
+<% end %>
+
+

@@ -6,9 +6,12 @@ class Notifier < ActionMailer::Base
   # sendgrid_enable   :ganalytics, :opentrack
   # sendgrid_unique_args :key1 => "value1", :key2 => "value2"
 
-  def chore_notification_email(chore)
-    @user = chore.user
-    @chore = chore
+
+  def chore_notification_email(assignment)
+    @user = assignment.user
+    @chore = assignment.chore
+    @due_date = assignment.due_date.to_formatted_s(:long_ordinal)
+    @url = "http://localhost:3000/chore_assignments/complete/#{assignment.id}"
     sendgrid_category "Chore Notification"
     # sendgrid_unique_args :key2 => "newvalue2", :key3 => "value3"
     mail :to => @user.email, :subject => "#{@user.name}. You've got a chore!"

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey, <%= @user.name %>! Do your damn chores!</h1>
+    <p>Your chore is <strong><%= @chore.title %></strong>, and it's overdue.</p>
+  <p>It was due on <strong><%= @chore.due_date %>!</strong></p>
+
+  <p>And now it shows up as <em>overdue</em> on Chore Room and everyone knows your slacking.</p>
+  </body>
+</html>

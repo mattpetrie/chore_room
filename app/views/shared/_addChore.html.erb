@@ -1,0 +1,35 @@
+<div class="col-sm-8">
+  <div id="choreform">
+    <form class="form-inline" action="<%= action %>" method="post">
+      <%= form_auth_token %>
+      <% unless value.nil? %>
+        <input type='hidden' name='_method' value="patch">
+      <% end %>
+      <label>Title:</br>
+        <input type="text" class="form-control" name="chore[title]">
+      </label>
+    
+      <label>Day of the Week:</br>
+        <select class="form-control" name="chore[day]">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </label>
+
+      <label>Number of People:<br>
+        <input type="number" class="form-control" name="chore[crew]">
+      </label>
+    
+      <% if value == 'patch' %>
+        <input type="submit" value="Update Chore" class="btn btn-primary">
+      <% else %>
+        <input type="submit" value="Add Chore" class="btn btn-primary">
+      <% end %>
+    </form>
+  </div>
+</div>
