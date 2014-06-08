@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'chore_assignments#index'
   resource :session, only: :new
   resources :chores
-  resources :users, only: :show
+  resources :users, only: [:show, :index]
 
   get "/auth/github/callback", to: "sessions#create"
   delete "/signout", to: "sessions#destroy", as: "signout"

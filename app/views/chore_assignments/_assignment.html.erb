@@ -4,9 +4,13 @@
   <div class="clearfix"></div>
   <p>
     <%= assignment.user.name %> <br>
-    <% if current_user == assignment.user && !assignment.completed %>
+    <% if (current_user == assignment.user || current_user.admin) && !assignment.completed %>
       <%= link_to "mark completed", complete_chore_url(assignment) %>
+    <% elsif assignment.completed && current_user != assignment.user %>
+        <%= link_to "flag" %>
     <% end %>
+    
+    
   </p>
   <p>Due: <%= assignment.due_date.to_formatted_s(:long_ordinal) %></p>
   <% if assignment.completed %>
