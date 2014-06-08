@@ -29,7 +29,7 @@
   <br>
   <% @user.chore_assignments.each do |assignment| %>
     <% if assignment.due_date > Date.today %>
-      <% status = 'incomplete' %>
+      <% status = assignment.completed ? 'completed' : 'incomplete' %>
       <%= render partial: 'chore_assignments/assignment', 
                  locals: { assignment: assignment, status: status } %>
     <% end %>
