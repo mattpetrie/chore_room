@@ -4,8 +4,10 @@
   <div class="row">
     <%= render partial: 'shared/addChore',
                locals: { action: chores_url, value: nil, chore: @chores } %>
-    <div class="col-sm-2">
-      <%= button_to "Send Chores!", send_chores_url, method: :post, class: "btn btn-lg btn-success"%>
+    <div class="col-sm-4">
+      <label>Click here to email everyone their chores:
+        <%= button_to "Assign Chores!", send_chores_url, method: :post, class: "btn btn-success"%>
+      </label>
     </div>
   </div>
 <% end %>
