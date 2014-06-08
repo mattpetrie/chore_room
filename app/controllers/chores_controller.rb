@@ -3,7 +3,7 @@ class ChoresController < ApplicationController
 
   def index
     @chore_assignments = ChoreAssignment.where(
-              due_date: Chronic.parse('last Saturday')..Chronic.parse('next Monday')
+              due_date: Chronic.parse('last Saturday')..Chronic.parse('next Sunday')
               ).sort_by { |assignment| assignment.due_date }
   end
 
@@ -13,9 +13,11 @@ class ChoresController < ApplicationController
   def create
     @chore = Chore.new(chore_params)
     if @chore.save
-      render json: @chore
+      flash[:notice] = "#{@chore.title} added!"
+      redirect_to chores_url
     else
-      render json: @chore.errors.full_messages, status: 422
+      flash[:errors] = @chore.errors.full_messages
+      redirect_to chores_url
     end
   end
 

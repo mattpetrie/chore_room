@@ -3,17 +3,31 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .chore-assignment{
-  padding: 5px;
-  .chore-assignment-inner{
   padding: 10px;
-  border: 2px solid #999;
+  height: 260px;
+  width: 20%;
+  float: left;
   border-radius: 4px;
+  background-color: #eee;
+  h4 {
+    min-height: 38px;
   }
 }
 
+.alternate{
+  background-color: #ddd;
+}
+
 .user-photo{
-  max-height: 100px;
+  max-height: 75px;
   max-width: auto;
+  border-radius: 4px;
+  padding-right: 10px;
+}
+
+.completed, .incomplete, .overdue{
+  font-weight: bold;
+  text-align: center;
 }
 
 .completed{
