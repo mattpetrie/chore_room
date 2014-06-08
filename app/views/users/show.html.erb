@@ -1,6 +1,8 @@
 <h1>Your Chore History:</h1>
 
 <div id="past" class="history">
+  <h5>Chore History:</h5>
+  <br>
   <% @user.chore_assignments.each do |assignment| %>
     <% if assignment.due_date < Date.today %>
         <% status = assignment.completed ? 'completed' : 'overdue' %>
@@ -11,6 +13,8 @@
 </div>
 
 <div id="present" class="history">
+  <h5>Todays Chores:</h5>
+  <br>
   <% @user.chore_assignments.each do |assignment| %>
     <% if assignment.due_date == Date.today %>
       <% status = assignment.completed ? 'completed' : 'incomplete' %>
@@ -21,6 +25,8 @@
 </div>
 
 <div id="future" class="history">
+  <h5>Upcoming Chores:</h5>
+  <br>
   <% @user.chore_assignments.each do |assignment| %>
     <% if assignment.due_date > Date.today %>
       <% status = 'incomplete' %>
