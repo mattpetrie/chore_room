@@ -1,13 +1,13 @@
 <div class="col-sm-8">
   <div id="choreform">
-    <form class="form-inline" action="<%= action %>" method="post">
+    <form action="<%= action %>" method="post">
       <%= form_auth_token %>
       <% unless value.nil? %>
         <input type='hidden' name='_method' value="patch">
       <% end %>
       <label>Title:</br>
         <input type="text" class="form-control" name="chore[title]">
-      </label>
+      </label><br>
     
       <label>Day of the Week:</br>
         <select class="form-control" name="chore[day]">
@@ -23,7 +23,11 @@
 
       <label>Number of People:<br>
         <input type="number" class="form-control" name="chore[crew]">
-      </label>
+      </label><br>
+
+      <label>Description
+        <textarea name="chore[description" class="form-control" cols="30" rows="10"></textarea>
+      </label><br>
     
       <% if value == 'patch' %>
         <input type="submit" value="Update Chore" class="btn btn-primary">
