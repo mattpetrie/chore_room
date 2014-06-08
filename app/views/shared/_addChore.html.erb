@@ -1,29 +1,31 @@
-
-<div id="choreform">
-  <form action="<%= action %>" method="post">
-    <%= form_auth_token %>
-    <% unless value.nil? %>
-      <input type='hidden' name='_method' value="patch">
-    <% end %>
-    <% unless value.nil? %>
-      <input type="hidden" name="_method" value="patch">
-    <% end %>
-    <label>Title:</br>
-      <input type="text" name="chore[title]">
-    </label>
-  
-    <label>Assigned to id:</br>
-      <input type="text" name="chore[user_id]">
-    </label>
-  
-    <label>Due:</br>
-      <input type="date" name="chore[due_date]">
-    </label>
-  
-    <% if value == 'patch' %>
-      <input type="submit" value="Update Chore">
-    <% else %>
-      <input type="submit" value="Add Chore">
-    <% end %>
-  </form>
+<div class="col-sm-6">
+  <div id="choreform">
+    <form action="<%= action %>" method="post">
+      <%= form_auth_token %>
+      <% unless value.nil? %>
+        <input type='hidden' name='_method' value="patch">
+      <% end %>
+      <label>Title:</br>
+        <input type="text" name="chore[title]">
+      </label>
+    
+      <label>Day of the Week:</br>
+        <select name="chore[day]">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </label>
+    
+      <% if value == 'patch' %>
+        <input type="submit" value="Update Chore" class="btn btn-primary">
+      <% else %>
+        <input type="submit" value="Add Chore" class="btn btn-primary">
+      <% end %>
+    </form>
+  </div>
 </div>

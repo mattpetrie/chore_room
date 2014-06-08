@@ -19,10 +19,14 @@ class Chore < ActiveRecord::Base
   def self.assign_chores!(user_ids)
     user_list = user_ids.shuffle!
     user_list += user_list.shuffle! until user_list.length >= Chore.count
-    self.all.each { |chore| ChoreAssignment.create({
+    new_assignments = []
+    self.all.each do |chore| 
+      new_assignments << ChoreAssignment.create({
       chore_id: chore.id, 
       user_id: user_list.shift, 
-      due_date: Chronic.parse("#{chore.day}")}) }
+      due_date: Chronic.parse("#{chore.day}")})
+    end
+    new_assignments
   end
 
   def current_assignments

@@ -2,7 +2,9 @@ class ChoresController < ApplicationController
   before_action :ensure_current_user
 
   def index
-    @chore_assignments = ChoreAssignment.where(due_date: Chronic.parse('last Saturday')..Chronic.parse('Sunday'))
+    @chore_assignments = ChoreAssignment.where(
+              due_date: Chronic.parse('last Saturday')..Chronic.parse('next Monday')
+              ).sort_by { |assignment| assignment.due_date }
   end
 
   def new
@@ -27,14 +29,15 @@ class ChoresController < ApplicationController
   end
 
   def send_chores
-    Chore.all.each do | chore |
-      Notifier.chore_notification_email(chore).deliver
+    new_assignments = Chore.assign_chores!(User.all.map(&:id))
+    new_assignments.each do |assignment|
+      Notifier.chore_notification_email(assignment).deliver
     end
     redirect_to root_url
   end
 
   private
   def chore_params
-    params.require(:chore).permit(:title, :user_id, :due_date)
+    params.require(:chore).permit(:title, :day)
   end
 end
