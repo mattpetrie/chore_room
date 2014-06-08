@@ -1,8 +1,31 @@
 <h1>Your Chore History:</h1>
 
-<% @user.assigned_chores.each do |chore| %>
+<div id="past" class="history">
+  <% @user.chore_assignments.each do |assignment| %>
+    <% if assignment.due_date < Date.today %>
+        <% status = assignment.completed ? 'completed' : 'overdue' %>
+        <%= render partial: 'chore_assignments/assignment', 
+                   locals: { assignment: assignment, status: status } %>
+    <% end %>
+  <% end %>
+</div>
 
+<div id="present" class="history">
+  <% @user.chore_assignments.each do |assignment| %>
+    <% if assignment.due_date == Date.today %>
+      <% status = assignment.completed ? 'completed' : 'incomplete' %>
+      <%= render partial: 'chore_assignments/assignment', 
+                 locals: { assignment: assignment, status: status } %>
+    <% end %>
+  <% end %>  
+</div>
 
-
-
-<% end %>
+<div id="future" class="history">
+  <% @user.chore_assignments.each do |assignment| %>
+    <% if assignment.due_date > Date.today %>
+      <% status = 'incomplete' %>
+      <%= render partial: 'chore_assignments/assignment', 
+                 locals: { assignment: assignment, status: status } %>
+    <% end %>
+  <% end %>
+</div>
