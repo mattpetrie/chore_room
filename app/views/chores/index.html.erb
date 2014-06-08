@@ -1,20 +1,19 @@
-<h1>Chores!</h1>
-
-<% if current_user.admin %>
-  <div class="row">
-    <%= render partial: 'shared/addChore',
-               locals: { action: chores_url, value: nil, chore: @chores } %>
-    <div class="col-sm-4">
-      <label>Click here to email everyone their chores:
-        <%= button_to "Assign Chores!", send_chores_url, method: :post, class: "btn btn-success"%>
-      </label>
-    </div>
-  </div>
-<% end %>
-
-
-<% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |weekday| %>
-  <%= render partial: 'chores/day', locals: { weekday: weekday } %>
-<% end %>
-
-
+<h1>Chore all the Things!</h1>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Weekday</th>
+      <th>Number of People</th>
+    </tr>
+  </thead>
+  <% @chores.each do |chore| %>
+  <tr>
+    <td><%= chore.title %></td>
+    <td><%= chore.description %></td>
+    <td><%= chore.day %></td>
+    <td><%= chore.crew %></td>
+  </tr>
+  <% end %>
+</table>

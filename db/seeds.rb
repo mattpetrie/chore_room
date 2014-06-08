@@ -36,6 +36,6 @@ Chore.create!([
 ])
 
 User.create!([
-  {name: "Nathan H", uid: "6186377", email: "hsieh.nathan@gmail.com", photo: "https://avatars.githubusercontent.com/u/6186377?", admin: false},
+  {name: "Nathan H", uid: "6186377", email: "hsieh.nathan@gmail.com", photo: "https://avatars.githubusercontent.com/u/6186377?", admin: true},
   {name: "Matt Petrie", uid: "3870201", email: "matthew.petrie@gmail.com", photo: "https://avatars.githubusercontent.com/u/3870201?", admin: true}
 ])

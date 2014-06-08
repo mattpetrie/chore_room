@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3><%= weekday %></h3>
+    <% @chore_assignments.select { |asgn| asgn.chore.day == weekday }.each do |asgn| %>
+      <% if asgn.completed %>
+        <% status = 'completed' %>
+      <% else %>
+        <% status = asgn.due_date > Date.today ? 'incomplete' : 'overdue' %>
+      <% end %>
+      <%= render partial: 'chore_assignments/assignment', 
+                 locals: { assignment: asgn, status: status } %>
+    <% end %>
+  </div>
+</div>

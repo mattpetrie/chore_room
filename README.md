@@ -9,14 +9,8 @@ Enter Choreroom. Each week Choreroom randomly assigns chores to residents. The r
 
 Choreroom was spearheaded by [Matt Petrie](http://www.mattpetrie.io) and [Nathan Hsieh](http://www.nathanhsieh.com), and is intended to live on as an open source collaborative effort for App Academy students.
 
-###Completed:
-* Login via Github with OmniAuth
-* Chore index page
-* Random assignment of chores
-
 ###ToDo:
-* ability to mark chores completed
-* email notification of chore assignment
+* more admin controls
 * chore 'leaderboard' showing who has done the most chores
 
 --------------------
