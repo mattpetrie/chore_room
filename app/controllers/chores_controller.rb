@@ -36,6 +36,13 @@ class ChoresController < ApplicationController
     redirect_to root_url
   end
 
+  def complete
+    @chore_assignment = ChoreAssignment.find(params[:id])
+    @chore_assignment.completed = true
+    @chore_assignment.save
+    redirect_to thank_you_url
+  end
+
   private
   def chore_params
     params.require(:chore).permit(:title, :day)
