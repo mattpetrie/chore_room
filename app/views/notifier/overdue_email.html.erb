@@ -5,9 +5,11 @@
   </head>
   <body>
     <h1>Hey, <%= @user.name %>! Do your damn chores!</h1>
-    <p>Your chore is <strong><%= @chore.title %></strong>, and it's overdue.</p>
-  <p>It was due on <strong><%= @chore.due_date %>!</strong></p>
+    <p>Your chore is <strong><%= @chore.title %></strong>, and you didn't get it done.</p>
+  <p>It was due on <strong><%= @due_date %>!</strong></p>
 
-  <p>And now it shows up as <em>overdue</em> on Chore Room and everyone knows your slacking.</p>
+  <p>And now it shows up as <em>overdue</em> on Chore Room, and everyone knows you're slacking.</p>
+
+  <p>If it's still possible to do your chore, then do it and <%= link_to "click this link", @url %> to mark your task completed. Either way, you let us down.</p>
   </body>
 </html>
