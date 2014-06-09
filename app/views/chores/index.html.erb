@@ -10,7 +10,7 @@
   </thead>
   <% @chores.each do |chore| %>
   <tr>
-    <td><%= chore.title %></td>
+    <td><%= link_to chore.title, edit_chore_url(chore) %></td>
     <td><%= chore.description %></td>
     <td><%= chore.day %></td>
     <td><%= chore.crew %></td>

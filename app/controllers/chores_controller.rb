@@ -6,6 +6,7 @@ class ChoresController < ApplicationController
   end
 
   def new
+    @chore = Chore.new
   end
 
   def create
@@ -20,9 +21,13 @@ class ChoresController < ApplicationController
   end
 
   def edit
+    @chore = Chore.find(params[:id])
   end
 
   def update
+    @chore = Chore.find(params[:id])
+    @chore.update_attributes(chore_params)
+    redirect_to chores_url
   end
 
   def destroy
@@ -30,6 +35,6 @@ class ChoresController < ApplicationController
 
   private
   def chore_params
-    params.require(:chore).permit(:title, :day, :crew)
+    params.require(:chore).permit(:title, :day, :crew, :description)
   end
 end

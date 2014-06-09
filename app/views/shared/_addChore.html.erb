@@ -2,34 +2,30 @@
   <div id="choreform">
     <form action="<%= action %>" method="post">
       <%= form_auth_token %>
-      <% unless value.nil? %>
+      <% if chore.persisted? %>
         <input type='hidden' name='_method' value="patch">
       <% end %>
       <label>Title:</br>
-        <input type="text" class="form-control" name="chore[title]">
+        <input type="text" class="form-control" name="chore[title]" value="<%= chore.title %>">
       </label><br>
     
       <label>Day of the Week:</br>
         <select class="form-control" name="chore[day]">
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
+        <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |weekday| %>
+          <option value="<%= weekday %>" <%= 'selected' if chore.day == weekday %>><%= weekday %></option>
+        <% end %>
         </select>
       </label>
 
       <label>Number of People:<br>
-        <input type="number" class="form-control" name="chore[crew]">
+        <input type="number" class="form-control" name="chore[crew]" value="<%= chore.crew %>">
       </label><br>
 
       <label>Description
-        <textarea name="chore[description" class="form-control" cols="30" rows="10"></textarea>
+        <textarea name="chore[description" class="form-control" cols="30" rows="10"><%= chore.description %></textarea>
       </label><br>
     
-      <% if value == 'patch' %>
+      <% if chore.persisted? %>
         <input type="submit" value="Update Chore" class="btn btn-primary">
       <% else %>
         <input type="submit" value="Add Chore" class="btn btn-primary">
