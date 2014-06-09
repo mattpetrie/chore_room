@@ -6,14 +6,18 @@
     <%= assignment.user.name %> <br>
     <% if (current_user == assignment.user || current_user.admin) && !assignment.completed %>
       <%= link_to "mark completed", complete_chore_url(assignment) %>
-    <% elsif assignment.completed && current_user != assignment.user %>
-        <%= link_to "flag", flag_chore_url(assignment) %>
+    <% elsif assignment.flagged && current_user.admin %>
+      <%= link_to "un-flag", flag_chore_url(assignment) %>
+    <% elsif assignment.completed && current_user != assignment.user && !assignment.flagged %>
+      <%= link_to "flag", flag_chore_url(assignment) %>
     <% end %>
     
     
   </p>
   <p>Due: <%= assignment.due_date.to_formatted_s(:long_ordinal) %></p>
-  <% if assignment.completed %>
+  <% if assignment.flagged%>
+    <p class="flagged">Flagged</p>
+  <% elsif assignment.completed %>
     <p class="completed">Completed!</p>
   <% elsif assignment.due_date > Date.today  %>
     <p class="incomplete">Not yet completed.</p>

@@ -7,6 +7,7 @@
       <% else %>
         <% status = asgn.due_date > Date.today ? 'incomplete' : 'overdue' %>
       <% end %>
+      <% status += ' flagged' if asgn.flagged %>      
       <%= render partial: 'chore_assignments/assignment', 
                  locals: { assignment: asgn, status: status } %>
     <% end %>

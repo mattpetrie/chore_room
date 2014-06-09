@@ -6,30 +6,20 @@
   <% @user.chore_assignments.each do |assignment| %>
     <% if assignment.due_date < Date.today %>
         <% status = assignment.completed ? 'completed' : 'overdue' %>
+        <% status += ' flagged' if assignment.flagged %>
         <%= render partial: 'chore_assignments/assignment', 
                    locals: { assignment: assignment, status: status } %>
     <% end %>
   <% end %>
 </div>
 
-<div id="present" class="history">
-  <h5>Todays Chores:</h5>
+<div id="current" class="history">
+  <h5>Weekly Chores:</h5>
   <br>
   <% @user.chore_assignments.each do |assignment| %>
-    <% if assignment.due_date == Date.today %>
-      <% status = assignment.completed ? 'completed' : 'incomplete' %>
-      <%= render partial: 'chore_assignments/assignment', 
-                 locals: { assignment: assignment, status: status } %>
-    <% end %>
-  <% end %>  
-</div>
-
-<div id="future" class="history">
-  <h5>Upcoming Chores:</h5>
-  <br>
-  <% @user.chore_assignments.each do |assignment| %>
-    <% if assignment.due_date > Date.today %>
-      <% status = assignment.completed ? 'completed' : 'incomplete' %>
+    <% if assignment.due_date >= Date.today %>
+      <% status = assignment.completed ? 'completed' : 'incomplete' %>      
+      <% status+=' flagged' if assignment.flagged %>
       <%= render partial: 'chore_assignments/assignment', 
                  locals: { assignment: assignment, status: status } %>
     <% end %>
