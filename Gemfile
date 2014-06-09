@@ -25,6 +25,7 @@ gem 'seed_dump'
 
 group :production, :staging do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 
 group :development do
