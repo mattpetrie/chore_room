@@ -1,11 +1,13 @@
 class ChoresController < ApplicationController
   before_action :ensure_current_user
+  before_action :ensure_admin, except: :index
 
   def index
     @chores = Chore.all
   end
 
   def new
+    @chore = Chore.new
   end
 
   def create
@@ -20,16 +22,31 @@ class ChoresController < ApplicationController
   end
 
   def edit
+    @chore = Chore.find(params[:id])
   end
 
   def update
+    @chore = Chore.find(params[:id])
+    @chore.update_attributes(chore_params)
+    redirect_to chores_url
   end
 
   def destroy
+    @chore = Chore.find(params[:id])
+    @chore.try(:destroy)
+    flash[:notice] = "#{@chore.title} deleted!"
+    redirect_to chores_url
   end
 
   private
   def chore_params
-    params.require(:chore).permit(:title, :day, :crew)
+    params.require(:chore).permit(:title, :day, :crew, :description)
+  end
+
+  def ensure_admin
+    unless current_user.admin
+      flash[:errors] = ["Only admins can create and edit chores."]
+      redirect_to :back
+    end
   end
 end
