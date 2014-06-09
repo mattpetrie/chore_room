@@ -15,6 +15,13 @@ class ChoreAssignment < ActiveRecord::Base
   belongs_to :user
   belongs_to :chore
 
+  def self.send_chores!
+    new_assignments = Chore.assign_chores!(User.all.map(&:id))
+    new_assignments.each do |assignment|
+      Notifier.chore_notification_email(assignment).deliver
+    end
+  end
+
   def overdue?
     self.due_date < Date.today && !self.completed
   end

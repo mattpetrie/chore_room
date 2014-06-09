@@ -25,10 +25,7 @@ class ChoreAssignmentsController < ApplicationController
   end
 
   def send_chores
-    new_assignments = Chore.assign_chores!(User.all.map(&:id))
-    new_assignments.each do |assignment|
-      Notifier.chore_notification_email(assignment).deliver
-    end
+    ChoreAssignement.send_chores!
     redirect_to root_url
   end
 end
