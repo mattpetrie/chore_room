@@ -1,4 +1,5 @@
 <h1>Chore all the Things!</h1>
+<p><%= button_to 'Add New Chore', new_chore_url, class: "btn btn-primary" %></p>
 <table class="table table-bordered table-striped table-hover">
   <thead>
     <tr>
@@ -8,9 +9,9 @@
       <th>Number of People</th>
     </tr>
   </thead>
-  <% @chores.each do |chore| %>
+  <% @chores.sort.each do |chore| %>
   <tr>
-    <td><%= chore.title %></td>
+    <td><%= link_to chore.title, edit_chore_url(chore) %></td>
     <td><%= chore.description %></td>
     <td><%= chore.day %></td>
     <td><%= chore.crew %></td>

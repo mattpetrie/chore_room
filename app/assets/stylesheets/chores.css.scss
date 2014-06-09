@@ -9,7 +9,6 @@
   width: 20%;
   float: left;
   border-radius: 4px;
-  background-color: #eee;
   h5 {
     min-height: 30px;
     font-weight: bold;
@@ -20,7 +19,7 @@
   max-height: 75px;
   max-width: auto;
   border-radius: 4px;
-  margin: 10px;
+  margin: 0 auto;
 }
 
 .completed, .incomplete, .overdue{
@@ -30,6 +29,10 @@
 
 .completed{
   background-color: #dff0d8;
+}
+
+.flagged{
+  border-color: red;
 }
 
 .incomplete{

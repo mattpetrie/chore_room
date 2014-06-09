@@ -3,11 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .history {
-  border: 1px solid black;
   position: relative;
   min-height: 50px;
   border-radius: 10px;
   padding: 5px 5px;
   float:left;
   clear:both;
+}
+
+#residents{
+  list-style: none;
+  li{
+    display: inline-block;
+    margin-right: 10px; 
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+}
+
+#leader-list{
+  list-style: none;
+  li{
+    margin: 10px 10px 10px 0;
+    width: 20%;
+    display: inline-block;
+    img{
+      height: 100px;
+      width: 100px;
+    }
+  }
+}
+
+.chore-square{
+  height: 10px;
+  width: 10px;
+  background-color: rgb(68, 163, 64);
+  margin-right: -2px;
+  display: inline-block;
 }

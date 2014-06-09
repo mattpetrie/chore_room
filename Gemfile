@@ -24,6 +24,10 @@ gem 'sendgrid'
 gem 'chronic'
 gem 'seed_dump'
 
+group :production, :staging do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

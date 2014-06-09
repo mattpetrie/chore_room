@@ -3,17 +3,25 @@
     <%= image_tag(assignment.user.photo, class: "user-photo img-responsive center-block") %>
   <div class="clearfix"></div>
   <p>
-    <%= assignment.user.name %> <br>
-    <% if current_user == assignment.user && !assignment.completed %>
-      <%= link_to "mark completed", complete_chore_url(assignment) %>
-    <% end %>
+    <%=link_to assignment.user.name, user_url(assignment.user) %>
   </p>
   <p>Due: <%= assignment.due_date.to_formatted_s(:long_ordinal) %></p>
-  <% if assignment.completed %>
-    <p class="completed">Completed!</p>
-  <% elsif assignment.due_date > Date.today  %>
-    <p class="incomplete">Not yet completed.</p>
+  <p>
+    <% if (current_user == assignment.user || current_user.admin) && !assignment.completed %>
+      <%= link_to "mark completed", complete_chore_url(assignment) %>
+    <% elsif assignment.flagged && current_user.admin %>
+      <%= link_to "un-flag", flag_chore_url(assignment) %>
+    <% elsif assignment.completed && current_user != assignment.user && !assignment.flagged %>
+      <%= link_to "flag", flag_chore_url(assignment) %>
+    <% end %>
+  </p>
+  <% if assignment.flagged%>
+    <p>Flagged</p>
+  <% elsif assignment.completed %>
+    <p>Completed!</p>
+  <% elsif assignment.overdue? %>
+    <p>Overdue</p>
   <% else %>
-    <p class="overdue">Overdue</p>
+    <p>Not yet completed.</p>
   <% end %>
 </div>

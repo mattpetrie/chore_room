@@ -13,11 +13,19 @@ class ChoreAssignmentsController < ApplicationController
     redirect_to thank_you_url
   end
 
-  def send_chores
-    new_assignments = Chore.assign_chores!(User.all.map(&:id))
-    new_assignments.each do |assignment|
-      Notifier.chore_notification_email(assignment).deliver
+  def flag
+    @chore_assignment = ChoreAssignment.find(params[:id])
+    if @chore_assignment.flagged
+      @chore_assignment.flagged = false
+    else
+      @chore_assignment.flagged = true
     end
+    @chore_assignment.save
+    redirect_to root_url
+  end
+
+  def send_chores
+    ChoreAssignement.send_chores!
     redirect_to root_url
   end
 
