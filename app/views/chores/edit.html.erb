@@ -1,3 +1,4 @@
-<h1>Edit Chore</h1>
+<h1>Edit <%= @chore.title %></h1>
+<p><%= button_to "Delete Chore", chore_url(@chore), method: :delete, class: "btn btn-danger" %> Warning! This can't be undone!</p>
 <%= render partial: 'shared/addChore',
            locals: { action: chore_url(@chore), chore: @chore } %>

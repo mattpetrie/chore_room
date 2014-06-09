@@ -14,4 +14,8 @@
 class ChoreAssignment < ActiveRecord::Base
   belongs_to :user
   belongs_to :chore
+
+  def overdue?
+    self.due_date < Date.today && !self.completed
+  end
 end

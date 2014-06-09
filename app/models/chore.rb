@@ -14,7 +14,7 @@
 class Chore < ActiveRecord::Base
   validates :title, :day, :crew, presence: true
   
-  has_many :chore_assignments
+  has_many :chore_assignments, dependent: :destroy
   has_many :users, through: :chore_assignments, source: :user
 
   # Refactor to work with ChoreAssignments
