@@ -1,3 +1,4 @@
+
 Chore.create!([
   {title: "Garbage Out Sunday", day: "Sunday", crew: 3, description: "Collect all the trash and recycling from the cans around the office and put them in the bins the garbage room. Take the bins down to the street."},
   {title: "Do Dishes Monday Morning", day: "Monday", crew: 1, description: "By lunch time: Put all dirty dishes from sink and elsewhere in dishwasher and run it."},
