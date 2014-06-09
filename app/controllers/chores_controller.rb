@@ -6,6 +6,7 @@ class ChoresController < ApplicationController
     @chores = Chore.all
   end
 
+
   def new
     @chore = Chore.new
   end

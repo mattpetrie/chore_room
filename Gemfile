@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'figaro'
 
 gem 'sendgrid'
+
 gem 'chronic'
 gem 'seed_dump'
 

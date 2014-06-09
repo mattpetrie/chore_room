@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey, <%= @user.name %>! Do your damn chores!</h1>
+    <p>Your chore is <strong><%= @chore.title %></strong>, and you didn't get it done.</p>
+  <p>It was due on <strong><%= @due_date %>!</strong></p>
+
+  <p>And now it shows up as <em>overdue</em> on Chore Room, and everyone knows you're slacking.</p>
+
+  <p>If it's still possible to do your chore, then do it and <%= link_to "click this link", @url %> to mark your task completed. If it's not possible anymore, then you really screwed up. Either way, you let us down.</p>
+  </body>
+</html>

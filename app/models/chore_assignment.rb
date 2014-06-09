@@ -22,6 +22,12 @@ class ChoreAssignment < ActiveRecord::Base
     end
   end
 
+  def self.send_overdue!
+    ChoreAssignment.all.each do |assignment|
+      Notifier.overdue_email(assignment).deliver if assignment.overdue?
+    end
+  end
+
   def overdue?
     self.due_date < Date.today && !self.completed
   end
