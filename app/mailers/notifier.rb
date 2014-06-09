@@ -24,6 +24,6 @@ class Notifier < ActionMailer::Base
     @url = "http://localhost:3000/chore_assignments/complete/#{assignment.id}"
     sendgrid_category "Overdue Chore"
     # sendgrid_unique_args :key2 => "newvalue2", :key3 => "value3"
-    mail :to => @user.email, :subject => "#{@user.name}. You're chore is overdue!"
+    mail :to => @user.email, :subject => "#{@user.name}. Your chore is overdue!"
   end
 end

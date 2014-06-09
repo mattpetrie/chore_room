@@ -29,8 +29,8 @@ class ChoreAssignmentsController < ApplicationController
     redirect_to root_url
   end
 
-  def send_overdue(assignment)
-    Notifier.overdue_email(assignment).deliver
+  def send_overdue
+    ChoreAssignement.send_overdue!
     redirect_to root_url
   end
 end
