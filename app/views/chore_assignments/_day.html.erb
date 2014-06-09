@@ -5,7 +5,7 @@
       <% if asgn.completed %>
         <% status = 'completed' %>
       <% else %>
-        <% status = asgn.due_date > Date.today ? 'incomplete' : 'overdue' %>
+        <% status = asgn.overdue? ? 'overdue' : 'incomplete' %>
       <% end %>
       <% status += ' flagged' if asgn.flagged %>      
       <%= render partial: 'chore_assignments/assignment', 

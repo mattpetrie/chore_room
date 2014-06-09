@@ -8,5 +8,9 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def leaderboard
+    @users = User.all.sort_by { |user| -user.completed_chores.count }
+  end
   
 end

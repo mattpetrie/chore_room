@@ -10,8 +10,14 @@
           <li><a href="<%= root_url %>">Current Chore Assignments</a></li>
           <li><a href="<%= chores_url %>">View All Chores</a></li>
           <li><a href="<%= new_chore_url %>">Add New Chore</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Residents<b class="caret"></b></a>
+        <ul class="dropdown-menu">
           <li><a href="<%= users_url %>">Residents List</a></li>
-          </ul>
+          <li><a href="<%= leaderboard_url %>">Leaderboard</a></li>
+        </ul>
       </li>
     <% end %>
   </ul>

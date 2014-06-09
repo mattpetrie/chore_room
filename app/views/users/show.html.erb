@@ -1,20 +1,7 @@
 <h1><%= @user.name %>'s Chore History:</h1>
 
-<div id="past" class="history">
-  <h5>Chore History:</h5>
-  <br>
-  <% @user.chore_assignments.each do |assignment| %>
-    <% if assignment.due_date < Date.today %>
-        <% status = assignment.completed ? 'completed' : 'overdue' %>
-        <% status += ' flagged' if assignment.flagged %>
-        <%= render partial: 'chore_assignments/assignment', 
-                   locals: { assignment: assignment, status: status } %>
-    <% end %>
-  <% end %>
-</div>
-
 <div id="current" class="history">
-  <h5>Weekly Chores:</h5>
+  <h3>Chores This Week:</h3>
   <br>
   <% @user.chore_assignments.each do |assignment| %>
     <% if assignment.due_date >= Date.today %>
@@ -22,6 +9,19 @@
       <% status+=' flagged' if assignment.flagged %>
       <%= render partial: 'chore_assignments/assignment', 
                  locals: { assignment: assignment, status: status } %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="past" class="history">
+  <h3>Chore History:</h3>
+  <br>
+  <% @user.chore_assignments.each do |assignment| %>
+    <% if assignment.due_date < Date.today %>
+        <% status = assignment.completed ? 'completed' : 'overdue' %>
+        <% status += ' flagged' if assignment.flagged %>
+        <%= render partial: 'chore_assignments/assignment', 
+                   locals: { assignment: assignment, status: status } %>
     <% end %>
   <% end %>
 </div>

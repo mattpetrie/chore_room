@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"]
     end
   end
+
+  def completed_chores
+    @completed_chores ||= self.chore_assignments.where(completed: true, flagged: false)
+  end
 end

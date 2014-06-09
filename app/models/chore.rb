@@ -24,6 +24,7 @@ class Chore < ActiveRecord::Base
     user_list += user_list.shuffle! until user_list.length >= total_assignments
     new_assignments = []
     self.all.each do |chore|
+      chore.current_assignments.each(&:destroy)
       chore.crew.times do 
         new_assignments << ChoreAssignment.create({
           chore_id: chore.id, 
@@ -35,6 +36,6 @@ class Chore < ActiveRecord::Base
   end
 
   def current_assignments
-    self.chore_assignments.where(completed: false)
+    self.chore_assignments.where(completed: false).reject { |asgn| asgn.overdue? }
   end
 end
