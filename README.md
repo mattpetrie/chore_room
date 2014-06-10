@@ -11,6 +11,7 @@ Choreroom was spearheaded by [Matt Petrie](http://www.mattpetrie.io) and [Nathan
 
 ###Features include:
 * Random assignment of weekly chores
+* Email reminders when chores become overdue
 * Completed chore leaderboard
 * Ability to 'flag' chores that weren't completed properly 
 

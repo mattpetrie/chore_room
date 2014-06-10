@@ -8,9 +8,13 @@ class ChoreAssignmentsController < ApplicationController
 
   def complete
     @chore_assignment = ChoreAssignment.find(params[:id])
-    @chore_assignment.completed = true
-    @chore_assignment.save
-    redirect_to thank_you_url
+    if @chore_assignment.due_date < Date.tomorrow
+      @chore_assignment.completed = true
+      @chore_assignment.save
+      redirect_to thank_you_url
+    else
+      redirect_to too_early_url
+    end
   end
 
   def flag
