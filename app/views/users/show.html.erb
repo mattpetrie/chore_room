@@ -1,6 +1,6 @@
 <h1><%= @user.name %>'s Chore History:</h1>
 
-<div id="current" class="history">
+<div id="current">
   <h3>Chores This Week:</h3>
   <br>
   <% @user.chore_assignments.each do |assignment| %>
@@ -13,7 +13,7 @@
   <% end %>
 </div>
 
-<div id="past" class="history">
+<div id="past">
   <h3>Chore History:</h3>
   <br>
   <% @user.chore_assignments.each do |assignment| %>

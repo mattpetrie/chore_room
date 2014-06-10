@@ -11,7 +11,9 @@
   </thead>
   <% @chores.sort.each do |chore| %>
   <tr>
-    <td><%= link_to chore.title, edit_chore_url(chore) %></td>
+    <% if current_user.admin %>
+      <td><%= link_to chore.title, edit_chore_url(chore) %></td>
+    <% end %>
     <td><%= chore.description %></td>
     <td><%= chore.day %></td>
     <td><%= chore.crew %></td>
