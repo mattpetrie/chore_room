@@ -10,6 +10,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  admin      :boolean          default(FALSE), not null
+#  eligible   :boolean          default(TRUE)
 #
 
 class User < ActiveRecord::Base

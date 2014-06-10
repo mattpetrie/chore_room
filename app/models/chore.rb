@@ -17,7 +17,6 @@ class Chore < ActiveRecord::Base
   has_many :chore_assignments, dependent: :destroy
   has_many :users, through: :chore_assignments, source: :user
 
-  # Refactor to work with ChoreAssignments
   def self.assign_chores!(user_ids)
     total_assignments = Chore.all.map(&:crew).reduce(:+)
     user_list = user_ids.shuffle!

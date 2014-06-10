@@ -10,6 +10,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  admin      :boolean          default(FALSE), not null
+#  eligible   :boolean          default(TRUE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

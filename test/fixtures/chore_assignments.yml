@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  completed  :boolean          default(FALSE)
+#  flagged    :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
