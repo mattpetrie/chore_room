@@ -1,6 +1,6 @@
 <% if current_user %>
 <div class="nav navbar navbar-inverse">
-  <a class="navbar-brand" href="<%= root_url %>">Choreroom Alpha</a>
+  <a class="navbar-brand" href="<%= root_url %>">Choreroom Private Beta</a>
   <ul class="nav navbar-nav navbar-left">
     <li><a href="<%= user_url(current_user.id) %>">Hello, <%= current_user.name %>!</a></li>
     <% if current_user.admin %>
