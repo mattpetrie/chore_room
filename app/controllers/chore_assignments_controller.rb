@@ -25,12 +25,12 @@ class ChoreAssignmentsController < ApplicationController
   end
 
   def send_chores
-    ChoreAssignement.send_chores!
+    ChoreAssignment.send_chores!
     redirect_to root_url
   end
 
   def send_overdue
-    ChoreAssignement.send_overdue!
+    ChoreAssignment.send_overdue!
     redirect_to root_url
   end
 end

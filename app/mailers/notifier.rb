@@ -11,7 +11,7 @@ class Notifier < ActionMailer::Base
     @user = assignment.user
     @chore = assignment.chore
     @due_date = assignment.due_date.to_formatted_s(:long_ordinal)
-    @url = "http://localhost:3000/chore_assignments/complete/#{assignment.id}"
+    @url = complete_chore_url(assignment)
     sendgrid_category "Chore Notification"
     # sendgrid_unique_args :key2 => "newvalue2", :key3 => "value3"
     mail :to => @user.email, :subject => "#{@user.name}. You've got a chore!"
@@ -21,7 +21,7 @@ class Notifier < ActionMailer::Base
     @user = assignment.user
     @chore = assignment.chore
     @due_date = assignment.due_date.to_formatted_s(:long_ordinal)
-    @url = "http://localhost:3000/chore_assignments/complete/#{assignment.id}"
+    @url = complete_chore_url(assignment)
     sendgrid_category "Overdue Chore"
     # sendgrid_unique_args :key2 => "newvalue2", :key3 => "value3"
     mail :to => @user.email, :subject => "#{@user.name}. Your chore is overdue!"
