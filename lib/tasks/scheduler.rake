@@ -1,4 +1,4 @@
-task :send_chores do
+task send_chores: :environment do
   ChoreAssignment.send_overdue!
 
   if Time.now.sunday?
