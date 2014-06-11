@@ -19,11 +19,14 @@ class ChoreAssignmentsController < ApplicationController
 
   def flag
     @chore_assignment = ChoreAssignment.find(params[:id])
-    if @chore_assignment.flagged
-      @chore_assignment.flagged = false
-    else
-      @chore_assignment.flagged = true
-    end
+    @chore_assignment.flagged = true
+    @chore_assignment.save
+    redirect_to root_url
+  end
+
+  def unflag
+    @chore_assignment = ChoreAssignment.find(params[:id])
+    @chore_assignment.flagged = false
     @chore_assignment.save
     redirect_to root_url
   end
