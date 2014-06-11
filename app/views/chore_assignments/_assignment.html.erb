@@ -10,7 +10,7 @@
     <% if (current_user == assignment.user || current_user.admin) && !assignment.completed %>
       <%= link_to "mark completed", complete_chore_url(assignment) %>
     <% elsif assignment.flagged && current_user.admin %>
-      <%= link_to "un-flag", flag_chore_url(assignment) %>
+      <%= link_to "un-flag", unflag_chore_url(assignment) %>
     <% elsif assignment.completed && current_user != assignment.user && !assignment.flagged %>
       <%= link_to "flag", flag_chore_url(assignment) %>
     <% end %>
