@@ -2,15 +2,15 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)      not null
-#  uid        :string(255)      not null
-#  email      :string(255)      not null
-#  photo      :string(255)      not null
-#  created_at :datetime
-#  updated_at :datetime
-#  admin      :boolean          default(FALSE), not null
-#  eligible   :boolean          default(TRUE)
+#  id               :integer          not null, primary key
+#  name             :string(255)      not null
+#  uid              :string(255)      not null
+#  email            :string(255)      not null
+#  photo            :string(255)      not null
+#  created_at       :datetime
+#  updated_at       :datetime
+#  admin            :boolean          default(FALSE), not null
+#  current_resident :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
       user.photo = auth["info"]["image"]
       user.email = auth["info"]["email"]
     end
+  end
+
+  def self.current_residents
+    User.where(current_resident: true).includes(:chore_assignments)
   end
 
   def completed_chores

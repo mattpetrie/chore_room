@@ -13,6 +13,8 @@
   <tr>
     <% if current_user.admin %>
       <td><%= link_to chore.title, edit_chore_url(chore) %></td>
+    <% else %>
+      <td><%= chore.title %></td>
     <% end %>
     <td><%= chore.description %></td>
     <td><%= chore.day %></td>

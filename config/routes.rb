@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :chores
 
   get "/users/leaderboard", to: "users#leaderboard", as: "leaderboard"
+  post "/users/remove_resident/:id", to: "users#remove_resident", as: "remove_resident"
+  post "/users/add_resident/:id", to: "users#add_resident", as: "add_resident"
   resources :users, only: [:show, :index]
 
   get "/auth/github/callback", to: "sessions#create"
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   get "/chore_assignments/complete/:id", to: "chore_assignments#complete", as: "complete_chore"
   get "/chore_assignments/flag/:id", to: "chore_assignments#flag", as: "flag_chore"
   get "/chore_assignments/unflag/:id", to: "chore_assignments#unflag", as: "unflag_chore"
+
   get "/static_pages/thank_you", to: "static_pages#thank_you", as: "thank_you"
   get "/static_pages/too_early", to: "static_pages#too_early", as: "too_early"
 end

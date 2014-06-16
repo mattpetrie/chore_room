@@ -2,11 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#residents{
+.users{
   list-style: none;
   li{
     display: inline-block;
     margin-right: 10px; 
+    vertical-align: top;
     img {
       height: 100px;
       width: 100px;
