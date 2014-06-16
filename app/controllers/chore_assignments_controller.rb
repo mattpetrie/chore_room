@@ -3,7 +3,7 @@ class ChoreAssignmentsController < ApplicationController
   def index
     @chore_assignments = ChoreAssignment.where(
           due_date: Chronic.parse('last Saturday')..Chronic.parse('next Sunday')
-          ).sort_by { |assignment| assignment.due_date }
+          ).sort_by { |assignment| assignment.due_date }.include(:chore, :user)
   end
 
   def complete
