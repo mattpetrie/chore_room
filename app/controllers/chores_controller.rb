@@ -3,7 +3,7 @@ class ChoresController < ApplicationController
   before_action :ensure_admin, except: :index
 
   def index
-    @chores = Chore.all
+    @chores = Chore.all.sort_by { |chore| chore.day }
   end
 
 

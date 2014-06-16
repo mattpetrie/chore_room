@@ -1,9 +1,9 @@
 class ChoreAssignmentsController < ApplicationController
   before_action :ensure_current_user
   def index
-    @chore_assignments = ChoreAssignment.where(
+    @chore_assignments = ChoreAssignment.includes(:chore, :user).where(
           due_date: Chronic.parse('last Saturday')..Chronic.parse('next Sunday')
-          ).sort_by { |assignment| assignment.due_date }.include(:chore, :user)
+          ).sort_by { |assignment| assignment.due_date }
   end
 
   def complete
