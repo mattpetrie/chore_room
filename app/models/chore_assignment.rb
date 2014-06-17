@@ -17,7 +17,7 @@ class ChoreAssignment < ActiveRecord::Base
   belongs_to :chore
 
   def self.send_chores!
-    new_assignments = Chore.assign_chores!(User.where(eligible: true).map(&:id))
+    new_assignments = Chore.assign_chores!(User.where(current_resident: true).map(&:id))
     new_assignments.each do |assignment|
       Notifier.chore_notification_email(assignment).deliver
     end
